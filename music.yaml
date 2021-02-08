@@ -78,11 +78,11 @@ proxy-groups:
 - { name: "UnblockNeteaseMusic", type: url-test, proxies: ["UnblockNeteaseMusic_Local", "UnblockNeteaseMusic_Network"], url: "http://www.gstatic.com/generate_204", interval: 60 }
 
 rules:
-# 自定义规则
-## 您可以在此处插入您补充的自定义规则
 DOMAIN-SUFFIX,music.126.net,DIRECT
 DOMAIN-SUFFIX,music.163.com,Netease
 DOMAIN-SUFFIX,man.netease.com,Netease
+USER-AGENT,NeteaseMusic*,Netease
+USER-AGENT,%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90*,Netease
 
 # LAN
 - DOMAIN-SUFFIX,local,DIRECT
