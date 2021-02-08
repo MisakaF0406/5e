@@ -61,7 +61,7 @@ dns:
 # (1) 如果您为了确保 DNS 解析结果无污染，请仅保留列表内以 tls:// 开头的 DNS 服务器，但是通常对于国内没有太大必要。
 # (2) 如果您不在乎可能解析到污染的结果，更加追求速度。请将 nameserver 列表的服务器插入至 fallback 列表内，并移除重复项。
 
-Proxy:
+proxies:
 
 # shadowsocks
 # 所支持的加密方式与 go-shadowsocks2 保持一致
@@ -69,15 +69,15 @@ Proxy:
 # clash 额外支持 chacha20 rc4-md5 xchacha20-ietf-poly1305 加密方式
 
 #  http
-- { name: "UnblockNeteaseMusic_Local", type: http, server: 192.168.1.28, port: 8080 }
+- { name: "UnblockNeteaseMusic_Local", type: http, server: music.chengyifei.top, port: 8080 }
 
 - { name: "UnblockNeteaseMusic_Network", type: http, server: test.io, port: 9880 }
 
-Proxy Group:
+proxy-groups:
 # url-test 网易云音乐
 - { name: "UnblockNeteaseMusic", type: url-test, proxies: ["UnblockNeteaseMusic_Local", "UnblockNeteaseMusic_Network"], url: "http://www.gstatic.com/generate_204", interval: 60 }
 
-Rule:
+rules:
 # 自定义规则
 ## 您可以在此处插入您补充的自定义规则
 - DOMAIN-SUFFIX,music.163.com,UnblockNeteaseMusic
